@@ -46,7 +46,7 @@ const likeCard = (req, res) => {
     )
       .orFail(() => new Error(`Карточка с _id ${req.params.cardId} не найдена`))
       .then((card) => res.send(card))
-      .catch((err) => res.status(500).send({ error: err.message }));
+      .catch((err) => res.status(404).send({ error: err.message }));
   }
   return res.status(400).send({ error: 'Неверный формат id карточки' });
 };
@@ -60,7 +60,7 @@ const unlikeCard = (req, res) => {
     )
       .orFail(() => new Error(`Карточка с _id ${req.params.cardId} не найдена`))
       .then((card) => res.send(card))
-      .catch((err) => res.status(500).send({ error: err.message }));
+      .catch((err) => res.status(404).send({ error: err.message }));
   }
   return res.status(400).send({ error: 'Неверный формат id карточки' });
 };
